@@ -3,6 +3,8 @@ sources:
   - https://git.sr.ht/~tsujp/dotfiles
 tasks:
   - mirror-to-github: |
+      mkdir -p ~/.ssh
+
       cd dotfiles
 
       # see https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/githubs-ssh-key-fingerprints
