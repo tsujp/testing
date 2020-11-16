@@ -3,7 +3,24 @@ sources:
   - https://git.sr.ht/~tsujp/dotfiles
 tasks:
   - mirror-to-github: |
-      echo "mirroring"
+      echo "blah"
+      # see https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/githubs-ssh-key-fingerprints
+      known_good='2048 SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8 github.com (RSA)'
+
+      keyscan_file=$(mktemp)
+
+      # fetch host pubkey and save it to a file, we need it later
+      ssh-keyscan -4 -T 5 -t rsa github.com | tee "$keyscan_file" 2> /dev/null
+
+      # does computed fingerprint from host pubkey match our known good one?
+      if [[ $(ssh-keygen -lf "$keyscan_file") =~ "$known_good" ]]; then
+        cat "$keyscan_file" >> ~/.ssh/known_hosts
+      else
+        exit 1
+      fi
+
+      git remote add github git@github.com:tsujp/testing.git
+
 shell: true
 # refspec src then colon then dest, e.g. src:dest
 # optional + can prefix this src:dest block e.g. +src:dest
