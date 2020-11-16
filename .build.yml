@@ -14,7 +14,7 @@ tasks:
       ssh-keyscan -4 -T 5 -t rsa github.com | tee "$keyscan_file" 2> /dev/null
 
       # does computed fingerprint from host pubkey match our known good one?
-      if [[ $(ssh-keygen -lf "$keyscan_file") =~ "$known_good" ]]; then
+      if [[ "$(ssh-keygen -lf "$keyscan_file")" =~ "$known_good" ]]; then
         cat "$keyscan_file" >> ~/.ssh/known_hosts
       else
         exit 1
