@@ -1,6 +1,8 @@
 image: alpine/3.12
 sources:
   - https://git.sr.ht/~tsujp/dotfiles
+secrets:
+  - 679ac1d9-15f3-455f-be0c-d7242d5c0964
 tasks:
   - mirror-to-github: |
       mkdir -p ~/.ssh
