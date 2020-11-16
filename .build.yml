@@ -8,7 +8,7 @@ tasks:
       cd dotfiles
 
       # see https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/githubs-ssh-key-fingerprints
-      known_good='2048 SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8 github.com (RSA)'
+      known_good='2048 SHA256:nThbg6kXUpJ-WGl7E1IGOCspRomTxdCARLviKw6E5SY8 github.com (RSA)'
 
       keyscan_file=$(mktemp)
 
