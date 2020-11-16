@@ -1,0 +1,5 @@
+image: alpine/3.12
+sources: https://git.sr.ht/~tsujp/dotfiles
+tasks:
+  - mirror-to-github: |
+      echo "mirroring"
