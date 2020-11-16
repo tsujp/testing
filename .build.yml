@@ -4,3 +4,11 @@ sources:
 tasks:
   - mirror-to-github: |
       echo "mirroring"
+shell: true
+# refspec src then colon then dest, e.g. src:dest
+# optional + can prefix this src:dest block e.g. +src:dest
+#
+# + force overrides default blocking behaviour for certain ref changes, with
+# the exception of `refs/heads/*` which can never have a non-commit object pushed
+# 
+# git push --prune azure +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
