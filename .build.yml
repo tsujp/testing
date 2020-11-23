@@ -25,6 +25,7 @@ tasks:
       fi
 
       git remote add github git@github.com:tsujp/testing.git
+      git push --prune github +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
 
 # refspec src then colon then dest, e.g. src:dest
 # optional + can prefix this src:dest block e.g. +src:dest
